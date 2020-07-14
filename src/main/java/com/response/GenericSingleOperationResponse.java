@@ -16,6 +16,7 @@ import java.util.Map;
  */
 public class GenericSingleOperationResponse extends GenericBaseResponse
 {
+	private final String NO_NAME = "THE_GIRL_HAS_NO_NAME"; 
 	private Map<String,Object> params;
 	private List<String> successList;
 	private List<String> failureList;
@@ -101,5 +102,17 @@ public class GenericSingleOperationResponse extends GenericBaseResponse
 
 	public Map<String, Object> getParams() {
 		return params;
+	}
+
+	public void addParam(Object param)
+	{
+		params.put(NO_NAME,param);
+	}
+
+	public Object extractParam()
+	{
+		if(params != null && params.containsKey(NO_NAME))
+			return params.get(NO_NAME);
+		return null;
 	}
 }
